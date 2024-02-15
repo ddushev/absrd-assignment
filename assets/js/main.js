@@ -10,16 +10,45 @@ const objToRender = 'cybertruck';
 //Keep the 3D object on a global variable so we can access it later
 let object;
 
+//Correctly set width/height of the device
+let width = window.screen.availWidth >= window.innerWidth ? window.innerWidth : window.screen.availWidth;
+let height = window.screen.availHeight >= window.innerHeight ? window.innerHeight : window.screen.availHeight;
+
 //Create a Three.JS Scene
 const scene = new THREE.Scene();
 //Create a new camera with positions and angles
-const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 10000);
+const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 10000);
 //Instantiate a new renderer and set its size
 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true }); //Alpha: true allows for the transparent background
 
 //Add the renderer to the DOM
 const container = document.getElementById("container3D");
 container.appendChild(renderer.domElement);
+
+// Function to update renderer size and camera aspect ratio
+function updateRendererSize() {
+  const containerRect = container.getBoundingClientRect();
+  // Set the size of the renderer to match the container
+  renderer.setSize(containerRect.width, containerRect.height);
+
+  // Update the aspect ratio of the camera to match the container
+  camera.aspect = containerRect.width / containerRect.height;
+  camera.updateProjectionMatrix();
+}
+
+// Function to update camera position based on screen width
+function updateCameraPosition() {
+  if (width <= 550) {
+    camera.position.set(0, 2, 15);
+  } else if (width <= 750) {
+    camera.position.set(0, 2, 11);
+  } else {
+    camera.position.set(0, 2, 7);
+  }
+}
+
+updateRendererSize();
+updateCameraPosition();
 
 //Function to render the scene in a loop
 function animate() {
@@ -32,6 +61,8 @@ function animate() {
 
   renderer.render(scene, camera);
 }
+
+
 
 //Instantiate a loader for the 3d .gltf file
 const loader = new GLTFLoader();
@@ -58,34 +89,14 @@ loader.load(
   }
 );
 
-
-// Function to update renderer size and camera aspect ratio
-function updateRendererSize() {
-  const containerRect = container.getBoundingClientRect();
-  // Set the size of the renderer to match the container
-  renderer.setSize(containerRect.width, containerRect.height);
-
-  // Update the aspect ratio of the camera to match the container
-  camera.aspect = containerRect.width / containerRect.height;
-  camera.updateProjectionMatrix();
-}
-
-// Function to update camera position based on screen width
-function updateCameraPosition() {
-  if (window.innerWidth <= 550) {
-    camera.position.set(0, 2, 15);
-  } else if (window.innerWidth <= 750) {
-    camera.position.set(0, 2, 11); 
-  } else {
-    camera.position.set(0, 2, 7); 
-  }
-}
-
-updateRendererSize();
-updateCameraPosition();
-
 // Add a listener to the window, so we can resize the window and the camera
 window.addEventListener("resize", () => {
+  //Update the width/height on re-size
+  width = window.screen.availWidth >= window.innerWidth ? window.innerWidth : window.screen.availWidth;
+  height = window.screen.availHeight >= window.innerHeight ? window.innerHeight : window.screen.availHeight;
+  // console.log('window.screen.availWidth', window.screen.availWidth);
+  // console.log('window.innerWidth', window.innerWidth);
+  // console.log({ width });
   updateRendererSize();
   updateCameraPosition();
 });
