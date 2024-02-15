@@ -73,11 +73,11 @@ function updateRendererSize() {
 // Function to update camera position based on screen width
 function updateCameraPosition() {
   if (window.innerWidth <= 550) {
-    camera.position.set(0, 2, 20);
+    camera.position.set(0, 2, 15);
   } else if (window.innerWidth <= 750) {
-    camera.position.set(0, 2, 17); 
+    camera.position.set(0, 2, 11); 
   } else {
-    camera.position.set(0, 2, 13); 
+    camera.position.set(0, 2, 7); 
   }
 }
 

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka&Poppins&family=Sixtyfour&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +11,11 @@ html {
   font: normal 16px Arial, sans-serif;
 }
 
+.absolute {
+  position: absolute;
+}
+
+
 main {
   position: relative;
   width: 100vw;
@@ -16,58 +23,105 @@ main {
   background: linear-gradient(#d8d6d6, #90d6e8, #8f96e9, #ec8f92);
 }
 
-.absolute {
-  position: absolute;
-}
-
-.main-heading {
-  top: 50%;
-  left: 50%;
-}
-
-.main-heading:hover + .drop-down {
-  display: block;
-}
-
-.drop-down {
-  display: none;
-  width: 15rem;
+#container3D {
+  /* border: 1px solid green; */
+  width: 70vw;
+  height: 50vh;
   top: 55%;
   left: 50%;
-}
-
-
-#container3D {
-  border-top: 1px solid green;
-  border-left: 1px solid green;
-  width: 100vw;
-  height: 100vh;
+  transform: translate(-55%, -50%);
 }
 
 #container3D canvas {
-  border-bottom: 1px solid red;
-  border-right: 1px solid red;
   width: 100% !important;
   height: 100% !important;
 }
 
+.main-heading {
+  font-family: "Sixtyfour", sans-serif;
+  top: 32%;
+  left: 30%;
+  z-index: 10;
+}
 
-@media (max-width: 650px) {
+.main-heading:hover + .cybertruck-desc.hidden-content,
+.specs:hover + .cybertruck-specs.hidden-content {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.cybertruck-desc {
+  top: 7%;
+  left: 30%;
+}
+
+.hidden-content {
+  font-family: "Fredoka";
+  font-size: 1.1rem;
+  opacity: 0;
+  visibility: hidden;
+  width: 15rem;
+  transition: opacity 0.5s ease, visibility 0s linear 0.3s;
+}
+
+.specs {
+  font-family: "Sixtyfour", sans-serif;
+  top: 60%;
+  left: 45%;
+  z-index: 10;
+}
+
+.cybertruck-specs {
+  top: 65%;
+  left: 45%;
+}
+
+.spec-item>span {
+  font-weight: bold;
+}
+
+@media (max-width: 750px) {
   .main-heading {
+    left: 40%;
+    font-size: 1.5rem;
+  }
+
+  .cybertruck-desc {
     left: 40%;
   }
 
-  .drop-down {
-    left: 40%;
+  .specs {
+    top: 55%;
+    left: 20%;
+    font-size: 1.3rem;
+  }
+
+  .cybertruck-specs {
+    top: 60%;
+    left: 20%;
   }
 }
 
-@media (max-width: 530px) {
+@media (max-width: 550px) {
   .main-heading {
+    left: 20%;
+    font-size: 1.2rem;
+  }
+
+  .cybertruck-desc {
     left: 20%;
   }
 
-  .drop-down {
-    left: 20%;
+  .specs {
+    top: 52%;
+    left: 25%;
+    font-size: 1rem;
   }
+
+  .cybertruck-specs {
+    top: 56%;
+    left: 25%;
+  }
+
 }
