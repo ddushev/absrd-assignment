@@ -39,64 +39,22 @@ function updateRendererSize() {
 // Function to update camera position based on screen width
 function updateCameraPosition() {
   if (width <= 550) {
-    camera.position.set(0, 2, 15);
+    camera.position.set(0, 0, 15);
   } else if (width <= 750) {
-    camera.position.set(0, 2, 11);
+    camera.position.set(0, 0, 10);
   } else {
-    camera.position.set(0, 2, 7);
+    camera.position.set(0, 0, 7);
   }
 }
 
 updateRendererSize();
 updateCameraPosition();
 
-//Function to render the scene in a loop
-function animate() {
-  requestAnimationFrame(animate);
-
-  //Rotate the model
-  // object.rotation.x += 0.005;
-  // object.rotation.y += 0.005;
-  // object.rotation.z += 0.005;
-
-  renderer.render(scene, camera);
-}
-
-
-
-//Instantiate a loader for the 3d .gltf file
-const loader = new GLTFLoader();
-//Load the file
-loader.load(
-  `assets/models/${objToRender}/scene.gltf`,
-  function (gltf) {
-    //If the file is loaded, add it to the scene
-    object = gltf.scene;
-    // Adjust the model position
-    object.rotation.y = -0.8;
-    scene.add(object);
-
-    //Start the 3D render loop
-    animate();
-  },
-  function (xhr) {
-    //While it is loading, log the progress
-    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-  },
-  function (error) {
-    //If there is an error, log it
-    console.error(error);
-  }
-);
-
 // Add a listener to the window, so we can resize the window and the camera
 window.addEventListener("resize", () => {
   //Update the width/height on re-size
   width = window.screen.availWidth >= window.innerWidth ? window.innerWidth : window.screen.availWidth;
   height = window.screen.availHeight >= window.innerHeight ? window.innerHeight : window.screen.availHeight;
-  // console.log('window.screen.availWidth', window.screen.availWidth);
-  // console.log('window.innerWidth', window.innerWidth);
-  // console.log({ width });
   updateRendererSize();
   updateCameraPosition();
 });
@@ -122,4 +80,50 @@ document.getElementById("container3D").addEventListener("mouseenter", function (
 document.getElementById("container3D").addEventListener("mouseleave", function () {
   controls.enabled = false;
 });
+
+//Function to render the scene in a loop
+function animate() {
+  requestAnimationFrame(animate);
+
+  //Rotate the model
+  // object.rotation.x += 0.005;
+  // object.rotation.y += 0.005;
+  // object.rotation.z += 0.005;
+
+  renderer.render(scene, camera);
+}
+
+
+
+//Instantiate a loader for the 3d .gltf file
+const loader = new GLTFLoader();
+//Load the file
+loader.load(
+  `assets/models/${objToRender}/scene.gltf`,
+  function (gltf) {
+    //If the file is loaded, add it to the scene
+    object = gltf.scene;
+    // Adjust the model position
+    object.rotation.y = -0.8;
+
+    //Center the model
+    const box = new THREE.Box3().setFromObject(object);
+    const center = box.getCenter(new THREE.Vector3());
+    object.position.sub(center);
+
+    scene.add(object);
+
+    //Start the 3D render loop
+    animate();
+  },
+  function (xhr) {
+    //While it is loading, log the progress
+    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+  },
+  function (error) {
+    //If there is an error, log it
+    console.error(error);
+  }
+);
+
 
