@@ -10,12 +10,12 @@
 
 html {
   font: normal 16px "Sixtyfour", sans-serif;
+  overflow: hidden;
 }
 
 body {
   position: relative;
   width: 100vw;
-  height: 100vh;
   background: linear-gradient(#d8d6d6, #90d6e8, #8f96e9, #ec8f92);
 }
 
@@ -28,10 +28,6 @@ li {
   list-style: none;
 }
 
-.absolute {
-  position: absolute;
-}
-
 .hidden-content {
   font-family: "Fredoka";
   font-size: 1.7rem;
@@ -40,7 +36,6 @@ li {
   width: 27rem;
   transition: opacity 0.5s ease, visibility 0s linear 0.3s;
 }
-
 
 /* Header */
 
@@ -54,6 +49,11 @@ li {
 }
 
 .company-name {
+  display: flex;
+  align-items: center;
+}
+
+.navigation-container {
   display: flex;
   align-items: center;
 }
@@ -73,6 +73,8 @@ main {
 
 #container3D {
   /* border: 1px solid green; */
+  cursor: pointer;
+  position: absolute;
   width: 70vw;
   height: 50vh;
   top: 50%;
@@ -85,43 +87,57 @@ main {
   height: 100% !important;
 }
 
-.main-heading {
-  font-size: 2.7rem;
-  top: 36%;
+.desc-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2rem;
+  top: 15%;
   left: 25%;
+}
+
+.cybertruck-heading {
+  cursor: pointer;
+  font-size: 2.7rem;
   z-index: 10;
 }
 
-.main-heading:hover + .cybertruck-desc.hidden-content,
-.specs:hover + .cybertruck-specs.hidden-content {
-  opacity: 1;
-  visibility: visible;
-  transition-delay: 0s;
-}
-
 .cybertruck-desc {
-  top: 17%;
-  left: 25%;
+  font-size: 1.8rem;
 }
 
-.specs {
-  font-size: 2.3rem;
-  top: 65%;
+.specs-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  top: 60%;
   left: 50%;
+}
+
+.specs-heading {
+  cursor: pointer;
+  font-size: 2.3rem;
   z-index: 10;
 }
 
 .cybertruck-specs {
-  top: 69%;
-  left: 50%;
+  font-size: 1.8rem;
 }
 
 .spec-item {
   margin: 0 0 1rem 2rem;
 }
 
-.spec-item>span {
+.spec-item > span {
   font-weight: bold;
+}
+
+.cybertruck-heading:hover + .cybertruck-desc.hidden-content,
+.specs-heading:hover + .cybertruck-specs.hidden-content {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
 }
 
 /* Footer */
@@ -133,55 +149,48 @@ main {
   font-size: 1.5rem;
   height: 10vh;
 }
-#A8D6E2
+
 .link-container {
   padding: 2.5rem;
-
 }
 
 /* Media queries */
 
-@media (max-width: 750px) {
-  .main-heading {
-    left: 40%;
+@media (max-width: 1920px) {
+  .header-container {
+    font-size: 1.5rem;
+    padding: 2rem;
+  }
+  
+  .cybertruck-heading {
+    font-size: 2rem;
+  }
+  
+  .cybertruck-desc {
+    font-size: 1.4rem;
+  }
+
+  .specs-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    top: 60%;
+    left: 50%;
+  }
+  
+  .specs-heading {
     font-size: 1.5rem;
   }
-
-  .cybertruck-desc {
-    left: 40%;
-  }
-
-  .specs {
-    top: 55%;
-    left: 20%;
-    font-size: 1.3rem;
-  }
-
+  
   .cybertruck-specs {
-    top: 60%;
-    left: 20%;
+    font-size: 1.4rem;
   }
+
+}
+
+@media (max-width: 750px) {
 }
 
 @media (max-width: 550px) {
-  .main-heading {
-    left: 20%;
-    font-size: 1.2rem;
-  }
-
-  .cybertruck-desc {
-    left: 20%;
-  }
-
-  .specs {
-    top: 52%;
-    left: 25%;
-    font-size: 1rem;
-  }
-
-  .cybertruck-specs {
-    top: 56%;
-    left: 25%;
-  }
-
 }
