@@ -48,7 +48,7 @@ function updateCameraPosition() {
 }
 
 updateRendererSize();
-updateCameraPosition();
+// updateCameraPosition();
 
 // Add a listener to the window, so we can resize the window and the camera
 window.addEventListener("resize", () => {
@@ -56,7 +56,7 @@ window.addEventListener("resize", () => {
   width = window.screen.availWidth >= window.innerWidth ? window.innerWidth : window.screen.availWidth;
   height = window.screen.availHeight >= window.innerHeight ? window.innerHeight : window.screen.availHeight;
   updateRendererSize();
-  updateCameraPosition();
+  // updateCameraPosition();
 });
 
 
@@ -105,6 +105,7 @@ loader.load(
     object = gltf.scene;
     // Adjust the model position
     object.rotation.y = -0.8;
+    camera.position.set(0, 0, 7);
 
     //Center the model
     const box = new THREE.Box3().setFromObject(object);
