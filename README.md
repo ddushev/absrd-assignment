@@ -1,6 +1,6 @@
 # Overview
 
-Simple website showcasing a 3D model allowing the user to interact with the model. Hosted live using on <https://electric-225e8.web.app/> using Firebase
+Website prototype showcasing a 3D model allowing user interactions with the 3d model such as zooming/rotating/panning/ and auto rotating. App is deployed and available on <https://electric-225e8.web.app/>
 
 ## To install locally
 
@@ -9,7 +9,7 @@ Simple website showcasing a 3D model allowing the user to interact with the mode
 3. Navigate to the project folder with `cd absrd-assignment`
 4. Run `npm install` to install dependencies
 5. Type `npm run dev` to start the app.
-6. Open the app at the address pointed out - most likely that would be <http://localhost:5173/>
+6. Open the app at the address pointed out in the terminal- most likely that would be <http://localhost:5173/>
 
 ## Technical stack
 
@@ -20,3 +20,15 @@ Simple website showcasing a 3D model allowing the user to interact with the mode
 ## Libraries
 
 1. Three.js
+
+## Used documentations
+
+1. <https://threejs.org/docs/>
+2. <https://developer.mozilla.org/en-US/docs/Web/JavaScript/>
+
+## Used tools
+
+1. Visual Studio Code
+2. Vite
+3. Firebase
+4. ChatGPT
