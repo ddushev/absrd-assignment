@@ -40,6 +40,16 @@ li {
 }
 
 .company-name {
+  background-image: linear-gradient(
+    to right,
+    #000,
+    #0a4021,
+    #c2568c,
+    #ec8f92
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   display: flex;
   align-items: center;
 }
@@ -63,7 +73,6 @@ main {
 }
 
 #container3D {
-  cursor: pointer;
   position: absolute;
   width: 70vw;
   top: 50%;
@@ -104,6 +113,16 @@ main {
 
 .desc-heading,
 .specs-heading {
+  background-image: linear-gradient(
+    to right,
+    #000,
+    #0a4021,
+    #c2568c,
+    #ec8f92
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   cursor: pointer;
   font-size: 2.7rem;
   z-index: 10;
@@ -113,7 +132,6 @@ main {
 .cybertruck-specs {
   font-size: 1.8rem;
 }
-
 
 .details-content {
   font-family: "Fredoka";
@@ -243,22 +261,20 @@ main {
   .spec-item {
     margin: 0 0 0.5rem 0;
   }
-
 }
 
 @media (max-width: 550px) {
-
   .header-container {
     padding-top: 2rem;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap:1rem;
+    gap: 1rem;
   }
-  
+
   .navigation-container {
     flex-direction: column;
-  };
+  }
 
   .navigation-item {
     padding: 0.5rem;
@@ -268,7 +284,6 @@ main {
     top: 20%;
   }
 }
-
 
 @media (max-width: 375px) {
   .desc-container {

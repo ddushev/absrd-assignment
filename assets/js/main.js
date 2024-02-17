@@ -8,7 +8,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 const objToRender = 'cybertruck';
 //Keep the 3D object on a global variable so we can access it later
 let object;
-// Flag to indicate whether the button has been clicked
+// Variable to indicate rotation direction of the object
 let rotateDirection = 0;
 
 //Create a Three.JS Scene
