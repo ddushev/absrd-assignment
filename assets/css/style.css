@@ -268,3 +268,10 @@ main {
     top: 20%;
   }
 }
+
+
+@media (max-width: 375px) {
+  .desc-container {
+    top: 15%;
+  }
+}
