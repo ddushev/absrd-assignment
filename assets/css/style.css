@@ -49,11 +49,6 @@ li {
   align-items: center;
 }
 
-.mobile-menu {
-  display: none;
-  cursor: pointer;
-}
-
 .navigation-list {
   display: flex;
 }
@@ -254,34 +249,16 @@ main {
 @media (max-width: 550px) {
 
   .header-container {
-    padding: 1rem 2rem;
-  }
-
-  .navigation-container {
-    display: flex;
+    padding-top: 2rem;
     flex-direction: column;
-    text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap:1rem;
   }
-
   
-  .mobile-menu {
-    display: block;
-    margin-top: 0.4rem;
-    padding: 1rem 2rem;
-  }
-
-  .navigation-list {
+  .navigation-container {
     flex-direction: column;
-    display: none;
-  }
-
-  .mobile-menu:hover + .navigation-list {
-    display: block;
-  }
-
-  .navigation-list:hover {
-    display: block;
-  }
+  };
 
   .navigation-item {
     padding: 0.5rem;
