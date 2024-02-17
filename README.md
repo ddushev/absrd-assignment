@@ -32,3 +32,4 @@ Website prototype showcasing a 3D model allowing user interactions with the 3d m
 2. Vite
 3. Firebase
 4. ChatGPT
+5. <https://sketchfab.com/>
