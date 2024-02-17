@@ -4,7 +4,6 @@ import * as THREE from "three";
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 // To allow for importing the .gltf file
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-console.log("JS")
 //Set which object to render
 const objToRender = 'cybertruck';
 //Keep the 3D object on a global variable so we can access it later
@@ -36,19 +35,7 @@ function updateRendererSize() {
   camera.updateProjectionMatrix();
 }
 
-// Function to update camera position based on screen width
-function updateCameraPosition() {
-  if (width <= 550) {
-    camera.position.set(0, 0, 15);
-  } else if (width <= 750) {
-    camera.position.set(0, 0, 10);
-  } else {
-    camera.position.set(0, 0, 7);
-  }
-}
-
 updateRendererSize();
-// updateCameraPosition();
 
 // Add a listener to the window, so we can resize the window and the camera
 window.addEventListener("resize", () => {
@@ -56,7 +43,6 @@ window.addEventListener("resize", () => {
   width = window.screen.availWidth >= window.innerWidth ? window.innerWidth : window.screen.availWidth;
   height = window.screen.availHeight >= window.innerHeight ? window.innerHeight : window.screen.availHeight;
   updateRendererSize();
-  // updateCameraPosition();
 });
 
 
@@ -84,12 +70,6 @@ document.getElementById("container3D").addEventListener("mouseleave", function (
 //Function to render the scene in a loop
 function animate() {
   requestAnimationFrame(animate);
-
-  //Rotate the model
-  // object.rotation.x += 0.005;
-  // object.rotation.y += 0.005;
-  // object.rotation.z += 0.005;
-
   renderer.render(scene, camera);
 }
 
