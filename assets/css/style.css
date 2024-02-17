@@ -51,6 +51,7 @@ li {
 
 .mobile-menu {
   display: none;
+  cursor: pointer;
 }
 
 .navigation-list {
@@ -289,6 +290,10 @@ main {
   }
 
   .mobile-menu:hover + .navigation-list {
+    display: block;
+  }
+
+  .navigation-list:hover {
     display: block;
   }
 

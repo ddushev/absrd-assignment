@@ -4,7 +4,7 @@ import * as THREE from "three";
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 // To allow for importing the .gltf file
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-
+console.log("JS")
 //Set which object to render
 const objToRender = 'cybertruck';
 //Keep the 3D object on a global variable so we can access it later
@@ -99,7 +99,7 @@ function animate() {
 const loader = new GLTFLoader();
 //Load the file
 loader.load(
-  `assets/models/${objToRender}/scene.gltf`,
+  `/models/${objToRender}/scene.gltf`,
   function (gltf) {
     //If the file is loaded, add it to the scene
     object = gltf.scene;
