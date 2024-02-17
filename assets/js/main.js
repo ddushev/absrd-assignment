@@ -9,16 +9,12 @@ const objToRender = 'cybertruck';
 //Keep the 3D object on a global variable so we can access it later
 let object;
 
-//Correctly set width/height of the device
-let width = window.screen.availWidth >= window.innerWidth ? window.innerWidth : window.screen.availWidth;
-let height = window.screen.availHeight >= window.innerHeight ? window.innerHeight : window.screen.availHeight;
-
 //Create a Three.JS Scene
 const scene = new THREE.Scene();
 //Create a new camera with positions and angles
-const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 10000);
+const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 10000);
 //Instantiate a new renderer and set its size
-const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true }); //Alpha: true allows for the transparent background
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 
 //Add the renderer to the DOM
 const container = document.getElementById("container3D");
@@ -36,14 +32,6 @@ function updateRendererSize() {
 }
 
 updateRendererSize();
-
-// Add a listener to the window, so we can resize the window and the camera
-window.addEventListener("resize", () => {
-  //Update the width/height on re-size
-  width = window.screen.availWidth >= window.innerWidth ? window.innerWidth : window.screen.availWidth;
-  height = window.screen.availHeight >= window.innerHeight ? window.innerHeight : window.screen.availHeight;
-  updateRendererSize();
-});
 
 
 //Add lights to the scene, so we can actually see the 3D model
