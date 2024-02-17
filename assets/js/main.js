@@ -8,6 +8,8 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 const objToRender = 'cybertruck';
 //Keep the 3D object on a global variable so we can access it later
 let object;
+// Flag to indicate whether the button has been clicked
+let rotateDirection = 0;
 
 //Create a Three.JS Scene
 const scene = new THREE.Scene();
@@ -55,9 +57,30 @@ document.getElementById("container3D").addEventListener("mouseleave", function (
   controls.enabled = false;
 });
 
+
+// Event listeners for the rotate functionality
+document.querySelector('.rotate-right').addEventListener('click', function() {
+  if (rotateDirection) {
+    rotateDirection = 0;
+  }else {
+    rotateDirection = 0.01;
+  }
+});
+
+document.querySelector('.rotate-left').addEventListener('click', function() {
+  if (rotateDirection) {
+    rotateDirection = 0;
+  }else {
+    rotateDirection = -0.01;
+  }
+});
+
 //Function to render the scene in a loop
 function animate() {
   requestAnimationFrame(animate);
+  if (rotateDirection) {
+    object.rotation.y += rotateDirection;
+  }
   renderer.render(scene, camera);
 }
 
