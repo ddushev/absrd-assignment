@@ -119,20 +119,11 @@ main {
   font-size: 1.8rem;
 }
 
-.desc-heading:hover + .cybertruck-desc.hidden-content,
-.specs-heading:hover + .cybertruck-specs.hidden-content {
-  opacity: 1;
-  visibility: visible;
-  transition-delay: 0s;
-}
 
-.hidden-content {
+.details-content {
   font-family: "Fredoka";
   font-size: 1.7rem;
-  opacity: 0;
-  visibility: hidden;
   width: 27rem;
-  transition: opacity 0.5s ease, visibility 0s linear 0.3s;
 }
 
 /* Footer */
@@ -163,7 +154,7 @@ main {
   }
 
   .footer-container,
-  .hidden-content {
+  .details-content {
     font-size: 1.4rem;
   }
 }
@@ -182,7 +173,7 @@ main {
   .footer-container {
     font-size: 1.2rem;
   }
-  .hidden-content {
+  .details-content {
     font-size: 1.2rem;
     width: 23rem;
   }
@@ -202,7 +193,7 @@ main {
   .footer-container {
     font-size: 1rem;
   }
-  .hidden-content {
+  .details-content {
     font-size: 1rem;
     width: 20rem;
   }
@@ -226,7 +217,7 @@ main {
   .footer-container {
     font-size: 1rem;
   }
-  .hidden-content {
+  .details-content {
     font-size: 1rem;
     width: 20rem;
   }
@@ -256,11 +247,6 @@ main {
 
   .spec-item {
     margin: 0 0 0.5rem 0;
-  }
-
-  .hidden-content {
-    visibility: visible;
-    opacity: 1;
   }
 
 }
